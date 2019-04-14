@@ -1,2 +1,2 @@
 # oominesweeper
-Object Oriented Minesweeper build with Java FX
+Object Oriented Minesweeper built with Java FX

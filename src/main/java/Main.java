@@ -94,6 +94,11 @@ public class Main extends Application {
         stage.getIcons().add(new Image("images/mine.png"));
         stage.setTitle("OO Minesweeper");
         stage.setScene(scene);
+
+        stage.setWidth(GameMode.EASY.getWindowWidth());
+        stage.setHeight(GameMode.EASY.getWindowHeight());
+        stage.setResizable(false);
+        
         stage.show();
     }
 

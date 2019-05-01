@@ -33,13 +33,21 @@ public class Main extends Application {
 
         Image smilingImage = new Image(getClass().getResourceAsStream("images/smiling.png"));
         ImageView smilingImageView = new ImageView(smilingImage);
-
+        smilingImageView.setFitHeight(30);
+        smilingImageView.setFitWidth(30);
+        
         Image flagImage = new Image(getClass().getResourceAsStream("images/flag.png"));
         ImageView flagImageView = new ImageView(flagImage);
+        flagImageView.setFitHeight(30);
+        flagImageView.setFitWidth(30);
+        
         Label flagsNumberLabel = new Label("04");
 
         Image mineImage = new Image(getClass().getResourceAsStream("images/mine.png"));
         ImageView mineImageView = new ImageView(mineImage);
+        mineImageView.setFitHeight(30);
+        mineImageView.setFitWidth(30);
+        
         Label totalMinesLabel = new Label("99");
         
         controlLayout.getChildren().addAll(gameDifficultyCombo, newGameBtn, 

@@ -10,6 +10,8 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -55,7 +57,16 @@ public class Main extends Application {
         Label totalMinesLabel = new Label("99");
 
         controlLayout.getChildren().addAll(gameDifficultyCombo, newGameBtn);
-        statusLayout.getChildren().addAll(flagImageView, flagsNumberLabel, smilingImageView, mineImageView, totalMinesLabel);
+        
+        Region region1 = new Region();
+        HBox.setHgrow(region1, Priority.ALWAYS);
+
+        Region region2 = new Region();
+        HBox.setHgrow(region2, Priority.ALWAYS);
+
+        statusLayout.getChildren().addAll(flagImageView, flagsNumberLabel, region1, 
+                                          smilingImageView, region2,
+                                          mineImageView, totalMinesLabel);
         
         //Building a 9x9 grid
         TilePane tile = new TilePane();

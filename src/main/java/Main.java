@@ -19,7 +19,11 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         VBox mainLayout = new VBox();
+        
         HBox controlLayout = new HBox();
+        controlLayout.setPadding(new Insets(5,5,5,5));
+        HBox statusLayout = new HBox();
+        statusLayout.setPadding(new Insets(5,5,5,5));
 
         ObservableList<String> options = 
             FXCollections.observableArrayList(
@@ -49,13 +53,13 @@ public class Main extends Application {
         mineImageView.setFitWidth(30);
         
         Label totalMinesLabel = new Label("99");
-        
-        controlLayout.getChildren().addAll(gameDifficultyCombo, newGameBtn, 
-            smilingImageView, flagImageView, flagsNumberLabel, mineImageView, totalMinesLabel);
+
+        controlLayout.getChildren().addAll(gameDifficultyCombo, newGameBtn);
+        statusLayout.getChildren().addAll(flagImageView, flagsNumberLabel, smilingImageView, mineImageView, totalMinesLabel);
         
         //Building a 9x9 grid
         TilePane tile = new TilePane();
-        tile.setPadding(new Insets(5, 0, 5, 0));
+        tile.setPadding(new Insets(5, 5, 5, 5));
         tile.setPrefColumns(9);
         tile.setPrefColumns(9);
 
@@ -67,7 +71,7 @@ public class Main extends Application {
             }
         }
 
-        mainLayout.getChildren().addAll(controlLayout, tile);
+        mainLayout.getChildren().addAll(controlLayout, statusLayout, tile);
         
         Scene scene = new Scene(mainLayout);
         stage.setScene(scene);

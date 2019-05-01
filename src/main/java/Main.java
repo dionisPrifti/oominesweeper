@@ -18,7 +18,9 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-
+    
+    TilePane tile = new TilePane();
+    
     @Override
     public void start(Stage stage) {
         VBox mainLayout = new VBox();
@@ -39,6 +41,9 @@ public class Main extends Application {
         gameModeCombo.getSelectionModel().selectFirst();
         
         Button newGameBtn = new Button("New Game");
+        //newGameBtn.setOnAction(e -> {
+        //    System.out.println("New Game Button clicked!");
+        //});
 
         Image smilingImage = new Image(getClass().getResourceAsStream("images/smiling.png"));
         ImageView smilingImageView = new ImageView(smilingImage);
@@ -74,22 +79,12 @@ public class Main extends Application {
                                           smilingImageView, region2,
                                           mineImageView, totalMinesLabel);
         
-        //Building a 9x9 grid
-        TilePane tile = new TilePane();
+        //Building the initial grid
+        populateTilePane(GameMode.EASY);
         tile.setPadding(new Insets(5, 5, 5, 5));
-        tile.setPrefColumns(9);
-        tile.setPrefColumns(9);
-
-        ToggleButton cells[][] = new ToggleButton[9][9];
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                cells[i][j] = new ToggleButton("  ");
-                tile.getChildren().add(cells[i][j]);
-            }
-        }
 
         mainLayout.getChildren().addAll(controlLayout, statusLayout, tile);
-        
+
         Scene scene = new Scene(mainLayout);
         stage.getIcons().add(new Image("images/mine.png"));
         stage.setTitle("OO Minesweeper");
@@ -104,6 +99,21 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+    
+    public void populateTilePane(GameMode gameMode) {
+        int width = gameMode.getWidth();
+        int height = gameMode.getHeight();
+        
+        tile.getChildren().clear();
+
+        ToggleButton cells[][] = new ToggleButton[width][height];
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                cells[i][j] = new ToggleButton("  ");
+                tile.getChildren().add(cells[i][j]);
+            }
+        }
     }
 
 }

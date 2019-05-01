@@ -91,6 +91,8 @@ public class Main extends Application {
         mainLayout.getChildren().addAll(controlLayout, statusLayout, tile);
         
         Scene scene = new Scene(mainLayout);
+        stage.getIcons().add(new Image("images/mine.png"));
+        stage.setTitle("OO Minesweeper");
         stage.setScene(scene);
         stage.show();
     }

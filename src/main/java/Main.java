@@ -1,6 +1,7 @@
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -41,9 +42,6 @@ public class Main extends Application {
         gameModeCombo.getSelectionModel().selectFirst();
         
         Button newGameBtn = new Button("New Game");
-        //newGameBtn.setOnAction(e -> {
-        //    System.out.println("New Game Button clicked!");
-        //});
 
         Image smilingImage = new Image(getClass().getResourceAsStream("images/smiling.png"));
         ImageView smilingImageView = new ImageView(smilingImage);
@@ -85,6 +83,30 @@ public class Main extends Application {
 
         mainLayout.getChildren().addAll(controlLayout, statusLayout, tile);
 
+        newGameBtn.setOnAction(event -> {
+            Task<GameMode> task = new Task<GameMode>() {
+                @Override 
+                public GameMode call() throws Exception {
+                    GameMode gameMode = gameModeCombo.getSelectionModel().getSelectedItem();
+                    //updateMessage(gameMode.toString());
+                    updateValue(gameMode);
+                    return gameMode;
+                }
+            };
+            
+            task.valueProperty().addListener((obs, oldValue, newValue) -> {
+                stage.setWidth(newValue.getWindowWidth());
+                stage.setHeight(newValue.getWindowHeight());
+                
+                flagsNumberLabel.setText("00");
+                totalMinesLabel.setText(newValue.getTotalMines()+"");
+
+                populateTilePane(newValue);
+            });
+            
+            new Thread(task).start();
+        });
+        
         Scene scene = new Scene(mainLayout);
         stage.getIcons().add(new Image("images/mine.png"));
         stage.setTitle("OO Minesweeper");

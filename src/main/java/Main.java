@@ -28,15 +28,15 @@ public class Main extends Application {
         HBox statusLayout = new HBox();
         statusLayout.setPadding(new Insets(5,5,5,5));
 
-        ObservableList<String> options = 
+        ObservableList<GameMode> options = 
             FXCollections.observableArrayList(
-                "Easy",
-                "Medium",
-                "Hard"
+                GameMode.EASY,
+                GameMode.MEDIUM,
+                GameMode.HARD
             );
-        ComboBox<String> gameDifficultyCombo = new ComboBox<String>(options);
-        gameDifficultyCombo.setMinWidth(120);
-        gameDifficultyCombo.getSelectionModel().selectFirst();
+        ComboBox<GameMode> gameModeCombo = new ComboBox<GameMode>(options);
+        gameModeCombo.setMinWidth(120);
+        gameModeCombo.getSelectionModel().selectFirst();
         
         Button newGameBtn = new Button("New Game");
 
@@ -61,8 +61,8 @@ public class Main extends Application {
         Label totalMinesLabel = new Label("99");
         totalMinesLabel.setFont(new Font(20));
 
-        controlLayout.getChildren().addAll(gameDifficultyCombo, newGameBtn);
-        HBox.setMargin(gameDifficultyCombo, new Insets(0,5,0,0));
+        controlLayout.getChildren().addAll(gameModeCombo, newGameBtn);
+        HBox.setMargin(gameModeCombo, new Insets(0,5,0,0));
         
         Region region1 = new Region();
         HBox.setHgrow(region1, Priority.ALWAYS);

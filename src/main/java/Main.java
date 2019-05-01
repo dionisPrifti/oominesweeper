@@ -56,12 +56,12 @@ public class Main extends Application {
         //Building a 9x9 grid
         TilePane tile = new TilePane();
         tile.setPadding(new Insets(5, 0, 5, 0));
-        tile.setPrefColumns(16);
-        tile.setPrefColumns(16);
+        tile.setPrefColumns(9);
+        tile.setPrefColumns(9);
 
-        ToggleButton cells[][] = new ToggleButton[16][16];
-        for (int i = 0; i < 16; i++) {
-            for (int j = 0; j < 16; j++) {
+        ToggleButton cells[][] = new ToggleButton[9][9];
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
                 cells[i][j] = new ToggleButton("  ");
                 tile.getChildren().add(cells[i][j]);
             }

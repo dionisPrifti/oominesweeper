@@ -14,6 +14,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -48,6 +49,7 @@ public class Main extends Application {
         flagImageView.setFitWidth(30);
         
         Label flagsNumberLabel = new Label("04");
+        flagsNumberLabel.setFont(new Font(20));
 
         Image mineImage = new Image(getClass().getResourceAsStream("images/mine.png"));
         ImageView mineImageView = new ImageView(mineImage);
@@ -55,6 +57,7 @@ public class Main extends Application {
         mineImageView.setFitWidth(30);
         
         Label totalMinesLabel = new Label("99");
+        totalMinesLabel.setFont(new Font(20));
 
         controlLayout.getChildren().addAll(gameDifficultyCombo, newGameBtn);
         

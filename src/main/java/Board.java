@@ -11,6 +11,8 @@ public class Board {
     
     Cell[][] cells;
     
+    int[][] board;
+    
     /**
      * Get a list of all the neighbor cells 
      * 

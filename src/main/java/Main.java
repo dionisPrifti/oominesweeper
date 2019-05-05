@@ -138,14 +138,14 @@ public class Main extends Application {
     }
     
     public void populateTilePane(GameMode gameMode) {
-        int width = gameMode.getWidth();
-        int height = gameMode.getHeight();
+        int totalRows = gameMode.getTotalRows();
+        int totalCols = gameMode.getTotalCols();
         
         tile.getChildren().clear();
 
-        ToggleButton cells[][] = new ToggleButton[width][height];
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
+        ToggleButton cells[][] = new ToggleButton[totalRows][totalCols];
+        for (int i = 0; i < totalRows; i++) {
+            for (int j = 0; j < totalCols; j++) {
                 cells[i][j] = new ToggleButton("  ");
                 tile.getChildren().add(cells[i][j]);
                 

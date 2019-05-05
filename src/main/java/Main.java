@@ -22,6 +22,8 @@ public class Main extends Application {
     
     TilePane tile = new TilePane();
     
+    boolean playing = false;
+    
     @Override
     public void start(Stage stage) {
         VBox mainLayout = new VBox();
@@ -42,7 +44,7 @@ public class Main extends Application {
         gameModeCombo.getSelectionModel().selectFirst();
         
         Button newGameBtn = new Button("New Game");
-
+       
         Image smilingImage = new Image(getClass().getResourceAsStream("images/smiling.png"));
         ImageView smilingImageView = new ImageView(smilingImage);
         smilingImageView.setFitHeight(30);
@@ -88,7 +90,6 @@ public class Main extends Application {
                 @Override 
                 public GameMode call() throws Exception {
                     GameMode gameMode = gameModeCombo.getSelectionModel().getSelectedItem();
-                    //updateMessage(gameMode.toString());
                     updateValue(gameMode);
                     return gameMode;
                 }
@@ -100,6 +101,8 @@ public class Main extends Application {
                 
                 flagsNumberLabel.setText("00");
                 totalMinesLabel.setText(newValue.getTotalMines()+"");
+                
+                playing = false;
 
                 populateTilePane(newValue);
             });
@@ -134,8 +137,14 @@ public class Main extends Application {
             for (int j = 0; j < height; j++) {
                 cells[i][j] = new ToggleButton("  ");
                 tile.getChildren().add(cells[i][j]);
+                
+                cells[i][j].setOnAction(e -> {
+                    if (!playing) {
+                        playing = true;
+                    }
+                });
             }
         }
     }
-
+    
 }

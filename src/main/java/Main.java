@@ -56,7 +56,7 @@ public class Main extends Application {
         flagImageView.setFitHeight(30);
         flagImageView.setFitWidth(30);
         
-        Label flagsNumberLabel = new Label("04");
+        Label flagsNumberLabel = new Label("00");
         flagsNumberLabel.setFont(new Font(20));
 
         Image mineImage = new Image(getClass().getResourceAsStream("images/mine.png"));
@@ -64,7 +64,7 @@ public class Main extends Application {
         mineImageView.setFitHeight(30);
         mineImageView.setFitWidth(30);
         
-        Label totalMinesLabel = new Label("99");
+        Label totalMinesLabel = new Label(GameMode.EASY.getTotalMines() + "");
         totalMinesLabel.setFont(new Font(20));
 
         controlLayout.getChildren().addAll(gameModeCombo, newGameBtn);

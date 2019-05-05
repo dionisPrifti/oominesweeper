@@ -39,7 +39,28 @@ public class Board {
 
         return neighbours;
     }
+    
+    /**
+     * Get the number of the adjacent mines to a certain Cell
+     * 
+     * @param row
+     * @param col
+     * @return
+     */
+    public int getAdjacentMineCount(int row, int col) {
+        List<Cell> neighbours = getNeighbours(row, col);
 
+        int mineCount = 0;
+        for (Cell neighbor : neighbours) {
+            //Using getters on the Cell class
+            //neighbor.getValue() MUST BE EUQAL TO board[neighbor.getRow()][neighbor.getCol()]
+            if (neighbor.getValue() == -1) {
+                  mineCount++;
+            }
+        }
+        return mineCount;
+    }
+    
     public int getTotalRows() {
         return totalRows;
     }

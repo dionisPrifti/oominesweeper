@@ -143,15 +143,22 @@ public class Main extends Application {
         
         tile.getChildren().clear();
 
-        ToggleButton cells[][] = new ToggleButton[width][height];
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
-                cells[i][j] = new ToggleButton("  ");
+        Cell cells[][] = new Cell[height][width];
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                cells[i][j] = new Cell(i, j, "  ");
                 tile.getChildren().add(cells[i][j]);
                 
                 cells[i][j].setOnAction(e -> {
                     if (!playing) {
                         playing = true;
+                        ((Cell)e.getSource()).setText("2");
+                        ((Cell)e.getSource()).setRevealed(true);
+                        ((Cell)e.getSource()).setDisable(true);
+                        
+                        //Generate Board
+                        Board board = new Board(gameMode, cells);
+                        board.generateBoard((Cell)e.getSource());
                     }
                 });
             }

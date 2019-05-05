@@ -13,7 +13,15 @@ public class Cell {
     private int value;
     
     private boolean revealed;
-
+    
+    /**
+     * Display the cell according to its value
+     * Display the digit with the correct color Or a mine/flag image
+     */
+    public void displayCell() {
+        System.out.println("The cell "+ row +", "+ col + " with value "+ value +" is displayed!");
+    }
+    
     public int getRow() {
         return row;
     }
@@ -28,6 +36,12 @@ public class Cell {
 
     public boolean isRevealed() {
         return revealed;
+    }
+
+    public void setRevealed(boolean revealed) {
+        this.revealed = revealed;
+        
+        displayCell();
     }
     
 }

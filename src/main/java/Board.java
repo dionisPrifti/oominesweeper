@@ -5,13 +5,13 @@ import util.BoardUtil;
 
 public class Board {
 
-    int totalRows; //height
+    private int totalRows; //height
     
-    int totalCols; //width
+    private int totalCols; //width
     
-    Cell[][] cells;
+    private Cell[][] cells;
     
-    int[][] board;
+    private int[][] board;
     
     /**
      * Get a list of all the neighbor cells 
@@ -20,7 +20,7 @@ public class Board {
      * @param col
      * @return
      */
-    List<Cell> getNeighbours(int row, int col) {
+    public List<Cell> getNeighbours(int row, int col) {
         List<Cell> neighbours = new ArrayList<>();
         
         for (int rowOffset : BoardUtil.OFFSETS) {
@@ -40,4 +40,20 @@ public class Board {
         return neighbours;
     }
 
+    public int getTotalRows() {
+        return totalRows;
+    }
+
+    public int getTotalCols() {
+        return totalCols;
+    }
+
+    public Cell[][] getCells() {
+        return cells;
+    }
+
+    public int[][] getBoard() {
+        return board;
+    }
+    
 }

@@ -17,6 +17,7 @@ import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import util.Info;
 
 public class Main extends Application {
     
@@ -86,28 +87,38 @@ public class Main extends Application {
         mainLayout.getChildren().addAll(controlLayout, statusLayout, tile);
 
         newGameBtn.setOnAction(event -> {
-            Task<GameMode> task = new Task<GameMode>() {
-                @Override 
-                public GameMode call() throws Exception {
-                    GameMode gameMode = gameModeCombo.getSelectionModel().getSelectedItem();
-                    updateValue(gameMode);
-                    return gameMode;
-                }
-            };
+            boolean canStartNewGame = true;
             
-            task.valueProperty().addListener((obs, oldValue, newValue) -> {
-                stage.setWidth(newValue.getWindowWidth());
-                stage.setHeight(newValue.getWindowHeight());
+            //If we are already playing, show the confirm dialog
+            //Otherwise start new game directly, without asking
+            if (playing) {
+                canStartNewGame = Info.showConfirmationDialogStartNewGame();
+            }
+            
+            if (canStartNewGame) {
+                Task<GameMode> task = new Task<GameMode>() {
+                    @Override 
+                    public GameMode call() throws Exception {
+                        GameMode gameMode = gameModeCombo.getSelectionModel().getSelectedItem();
+                        updateValue(gameMode);
+                        return gameMode;
+                    }
+                };
                 
-                flagsNumberLabel.setText("00");
-                totalMinesLabel.setText(newValue.getTotalMines()+"");
-                
-                playing = false;
+                task.valueProperty().addListener((obs, oldValue, newValue) -> {
+                    stage.setWidth(newValue.getWindowWidth());
+                    stage.setHeight(newValue.getWindowHeight());
+                    
+                    flagsNumberLabel.setText("00");
+                    totalMinesLabel.setText(newValue.getTotalMines()+"");
+                    
+                    playing = false;
 
-                populateTilePane(newValue);
-            });
-            
-            new Thread(task).start();
+                    populateTilePane(newValue);
+                });
+                
+                new Thread(task).start();
+            }
         });
         
         Scene scene = new Scene(mainLayout);

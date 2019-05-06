@@ -143,10 +143,10 @@ public class Main extends Application {
         
         tile.getChildren().clear();
 
-        ToggleButton cells[][] = new ToggleButton[totalRows][totalCols];
+        Cell cells[][] = new Cell[totalRows][totalCols];
         for (int i = 0; i < totalRows; i++) {
             for (int j = 0; j < totalCols; j++) {
-                cells[i][j] = new ToggleButton("  ");
+                cells[i][j] = new Cell(i, j, "  ");
                 tile.getChildren().add(cells[i][j]);
                 
                 cells[i][j].setOnAction(e -> {

@@ -1,5 +1,6 @@
+import javafx.scene.control.ToggleButton;
 
-public class Cell {
+public class Cell extends ToggleButton {
 
     private int row;
     
@@ -13,6 +14,17 @@ public class Cell {
     private int value;
     
     private boolean revealed;
+    
+    /**
+     * Creates a new Cell with the text displayed on the ToggleButton
+     * @param text the text to be displayed on the ToggleButton 
+     */
+    public Cell(int row, int col, String text) {
+        super(text);
+
+        this.row = row;
+        this.col = col;
+    }
     
     /**
      * Display the cell according to its value

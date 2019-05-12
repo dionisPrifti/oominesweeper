@@ -38,7 +38,9 @@ public class Board {
         placeMinesRandomly(startRow, startCol);
         
         addDigitsAroundMines();
-        
+
+        //Print the generated array for testing purposes
+        BoardUtil.printBoard(board, totalRows, totalCols);
     }
     
     /**

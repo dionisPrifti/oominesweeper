@@ -56,4 +56,26 @@ public class BoardUtil {
             return false; 
     }
     
+    /**
+     * Print the Board in the console, for testing purposes
+     * 
+     * @param board
+     * @param totalRows
+     * @param totalCols
+     */
+    public static void printBoard(int[][] board, int totalRows, int totalCols) {
+        for (int i = 0; i < totalRows; i++) {
+            for (int j = 0; j < totalCols; j++) {
+                if (board[i][j] == -1) {
+                    System.out.print("M ");
+                } else if (board[i][j] == 0) {
+                    System.out.print("  ");
+                } else {
+                    System.out.print(board[i][j]+ " ");
+                }
+            }
+            System.out.println();
+        }
+    }
+    
 }

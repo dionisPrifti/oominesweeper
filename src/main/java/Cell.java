@@ -1,4 +1,8 @@
+import javafx.geometry.Insets;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import util.StyleUtil;
 
 public class Cell extends ToggleButton {
 
@@ -32,6 +36,44 @@ public class Cell extends ToggleButton {
      */
     public void displayCell() {
         System.out.println("The cell "+ row +", "+ col + " with value "+ value +" is displayed!");
+        
+        if (value == -1) {
+            displayMine();
+        } else if (value == 0) {
+            displayBlank();
+        } else {
+            displayDigit();
+        }
+    }
+    
+    /**
+     * Display the mine image
+     */
+    public void displayMine() {
+        Image testMineImage = new Image(getClass().getResourceAsStream("images/mine.png"));
+        ImageView testMineImageView = new ImageView(testMineImage);
+        testMineImageView.setFitHeight(21);
+        testMineImageView.setFitWidth(21);
+
+        this.setText("");
+        this.setGraphic(testMineImageView);
+        this.setPadding(new Insets(5,4,5,4));
+    }
+    
+    /**
+     * Display spaces for a blank cell
+     */
+    public void displayBlank() {
+        this.setText("  ");
+    }
+    
+    /**
+     * Display a cell as a number with the corresponding color
+     */
+    public void displayDigit() {
+        this.setText(value + "");
+        this.setStyle("-fx-font-weight: bold");
+        this.setTextFill(StyleUtil.getColorForValue(value));
     }
     
     public int getRow() {

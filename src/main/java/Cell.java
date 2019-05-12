@@ -2,6 +2,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import util.StyleUtil;
 
 public class Cell extends ToggleButton {
@@ -44,6 +45,17 @@ public class Cell extends ToggleButton {
         } else {
             displayDigit();
         }
+        
+        this.setSelected(true);
+        //Hotfix
+        this.setMinWidth(29);
+        this.setMinHeight(31);
+        
+        this.setOnAction(event -> {
+            System.out.println("Revealed cell clicked again!");
+            this.setSelected(true);
+        });
+        
     }
     
     /**

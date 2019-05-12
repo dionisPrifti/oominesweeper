@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import util.BoardUtil;
 
@@ -8,6 +9,8 @@ public class Board {
     private int totalRows; //height
     
     private int totalCols; //width
+    
+    private int totalMines;
     
     private Cell[][] cells;
     
@@ -67,6 +70,10 @@ public class Board {
 
     public int getTotalCols() {
         return totalCols;
+    }
+
+    public int getTotalMines() {
+        return totalMines;
     }
 
     public Cell[][] getCells() {

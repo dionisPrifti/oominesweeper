@@ -15,6 +15,65 @@ public class Board {
     private Cell[][] cells;
     
     private int[][] board;
+
+    /**
+     * Generate the Minesweeper Board, after the first cell is clicked.
+     * 
+     * @param cell the first cell clicked
+     */
+    public void generateBoard(Cell cell) {
+        int startRow = cell.getRow();
+        int startCol = cell.getCol();
+
+        board = new int[totalRows][totalCols];
+        
+        placeMinesRandomly(startRow, startCol);
+        
+        addDigitsAroundMines();
+
+    }
+    
+    /**
+     * Place the Mine Randomly, starting from the first clicked cell 
+     * and the totalMines count
+     * @param startRow
+     * @param startCol
+     */
+    public void placeMinesRandomly(int startRow, int startCol) {
+        Random random = new Random();
+
+        for (int mine = 0; mine < totalMines; mine++) {
+            boolean minePlaced = false;
+
+            while (!minePlaced) {
+                int row = random.nextInt(totalRows);
+                int col = random.nextInt(totalCols);
+
+                //make sure we can place this mine:
+                //1. the mine is not already placed
+                //2. the mine is not a neighbor with the start cell
+                if (board[row][col] != -1 && !BoardUtil.areNeighbors(startRow, startCol, row, col)) {
+                    board[row][col] = -1;
+                    minePlaced = true;
+                }
+            }
+        }
+    }
+    
+    /**
+     * After placing all the mines, populate the board with numbers indicating mines
+     */
+    public void addDigitsAroundMines() {
+        for (int row = 0; row < totalRows; row++) {
+            for (int col = 0; col < totalCols; col++) {
+                //Do this for non-mines
+                if (board[row][col] != -1) {
+                    int numberOfAdjecentMines = getAdjacentMineCount(row, col);
+                    board[row][col] = numberOfAdjecentMines;
+                }
+            }
+        }
+    }
     
     /**
      * Get a list of all the neighbor cells 

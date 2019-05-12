@@ -15,7 +15,7 @@ public class Board {
     private Cell[][] cells;
     
     private int[][] board;
-
+    
     /**
      * Generate the Minesweeper Board, after the first cell is clicked.
      * 
@@ -54,6 +54,7 @@ public class Board {
                 //2. the mine is not a neighbor with the start cell
                 if (board[row][col] != -1 && !BoardUtil.areNeighbors(startRow, startCol, row, col)) {
                     board[row][col] = -1;
+                    cells[row][col].setValue(-1);
                     minePlaced = true;
                 }
             }

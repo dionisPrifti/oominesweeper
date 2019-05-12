@@ -16,6 +16,14 @@ public class Board {
     
     private int[][] board;
     
+    public Board(GameMode gameMode, Cell[][] cells) {
+        this.totalRows = gameMode.getTotalRows();
+        this.totalCols = gameMode.getTotalCols();
+        this.totalMines = gameMode.getTotalMines();
+
+        this.cells = cells;
+    }
+    
     /**
      * Generate the Minesweeper Board, after the first cell is clicked.
      * 
@@ -30,7 +38,7 @@ public class Board {
         placeMinesRandomly(startRow, startCol);
         
         addDigitsAroundMines();
-
+        
     }
     
     /**

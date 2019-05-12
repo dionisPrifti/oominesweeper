@@ -152,6 +152,10 @@ public class Main extends Application {
                 cells[i][j].setOnAction(e -> {
                     if (!playing) {
                         playing = true;
+                      
+                        //Generate Board
+                        Board board = new Board(gameMode, cells);
+                        board.generateBoard((Cell)e.getSource());
                     }
                 });
             }

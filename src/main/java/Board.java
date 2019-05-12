@@ -79,8 +79,9 @@ public class Board {
             for (int col = 0; col < totalCols; col++) {
                 //Do this for non-mines
                 if (board[row][col] != -1) {
-                    int numberOfAdjecentMines = getAdjacentMineCount(row, col);
-                    board[row][col] = numberOfAdjecentMines;
+                    int numberOfAdjacentMines = getAdjacentMineCount(row, col);
+                    board[row][col] = numberOfAdjacentMines;
+                    cells[row][col].setValue(numberOfAdjacentMines);
                 }
             }
         }

@@ -43,5 +43,5 @@ public class Info {
 
 	return showConfirmationDialog(header, content);
     }
-
+    
 }

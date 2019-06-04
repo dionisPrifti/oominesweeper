@@ -3,7 +3,6 @@ import javafx.geometry.Insets;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
 import util.StyleUtil;
 
 public class Cell extends ToggleButton {
@@ -20,6 +19,8 @@ public class Cell extends ToggleButton {
     private int value;
     
     private boolean revealed;
+    
+    private boolean flagged;
     
     /**
      * Creates a new Cell with the text displayed on the ToggleButton
@@ -119,8 +120,12 @@ public class Cell extends ToggleButton {
 
     public void setRevealed(boolean revealed) {
         this.revealed = revealed;
-        
+
         displayCell();
+    }
+
+    public boolean isFlagged() {
+        return flagged;
     }
     
 }

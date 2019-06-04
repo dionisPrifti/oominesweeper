@@ -1,3 +1,4 @@
+package minesweeper;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -45,12 +46,12 @@ public class Main extends Application {
         
         Button newGameBtn = new Button("New Game");
        
-        Image smilingImage = new Image(getClass().getResourceAsStream("images/smiling.png"));
+        Image smilingImage = new Image(getClass().getResourceAsStream("/images/smiling.png"));
         ImageView smilingImageView = new ImageView(smilingImage);
         smilingImageView.setFitHeight(30);
         smilingImageView.setFitWidth(30);
         
-        Image flagImage = new Image(getClass().getResourceAsStream("images/flag.png"));
+        Image flagImage = new Image(getClass().getResourceAsStream("/images/flag.png"));
         ImageView flagImageView = new ImageView(flagImage);
         flagImageView.setFitHeight(30);
         flagImageView.setFitWidth(30);
@@ -58,7 +59,7 @@ public class Main extends Application {
         Label flagsNumberLabel = new Label("00");
         flagsNumberLabel.setFont(new Font(20));
 
-        Image mineImage = new Image(getClass().getResourceAsStream("images/mine.png"));
+        Image mineImage = new Image(getClass().getResourceAsStream("/images/mine.png"));
         ImageView mineImageView = new ImageView(mineImage);
         mineImageView.setFitHeight(30);
         mineImageView.setFitWidth(30);
@@ -121,7 +122,7 @@ public class Main extends Application {
         });
         
         Scene scene = new Scene(mainLayout);
-        stage.getIcons().add(new Image("images/mine.png"));
+        stage.getIcons().add(new Image("/images/mine.png"));
         stage.setTitle("OO Minesweeper");
         stage.setScene(scene);
 

@@ -1,3 +1,4 @@
+package minesweeper;
 /**
  * An Enum holding the possible values and fields 
  * for the game mode / difficulty

@@ -1,3 +1,4 @@
+package minesweeper;
 import javafx.geometry.Insets;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
@@ -62,7 +63,7 @@ public class Cell extends ToggleButton {
      * Display the mine image
      */
     public void displayMine() {
-        Image testMineImage = new Image(getClass().getResourceAsStream("images/mine.png"));
+        Image testMineImage = new Image(getClass().getResourceAsStream("/images/mine.png"));
         ImageView testMineImageView = new ImageView(testMineImage);
         testMineImageView.setFitHeight(21);
         testMineImageView.setFitWidth(21);

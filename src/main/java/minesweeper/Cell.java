@@ -127,5 +127,29 @@ public class Cell extends ToggleButton {
     public boolean isFlagged() {
         return flagged;
     }
+
+    /**
+     * Quick check on the Cell value whether it's a mine
+     * @return
+     */
+    public boolean isMine() {
+        if (value == -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }    
+
+    /**
+     * Quick check on the Cell value whether it's a blank cell
+     * @return
+     */
+    public boolean isBlank() {
+        if (value == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
 }

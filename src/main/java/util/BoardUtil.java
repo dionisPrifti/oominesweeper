@@ -1,5 +1,7 @@
 package util;
 
+import minesweeper.Board;
+
 /**
  * A class containing utility methods related to the board and the cells
  * 
@@ -25,6 +27,8 @@ public class BoardUtil {
      *   
      */
     public static final int[] OFFSETS = { -1, 0, 1 };
+    
+    public static Board board;
     
     /**
      * An utility method to check whether a given cell (row, col) is a valid cell or not

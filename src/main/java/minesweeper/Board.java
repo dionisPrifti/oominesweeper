@@ -23,6 +23,7 @@ public class Board {
         this.totalMines = gameMode.getTotalMines();
 
         this.cells = cells;
+        BoardUtil.board = this;
     }
     
     /**

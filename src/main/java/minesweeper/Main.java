@@ -10,6 +10,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
@@ -162,6 +163,15 @@ public class Main extends Application {
                         ((Cell)event.getSource()).displayNeighborCells();
                     } else {
                         ((Cell)event.getSource()).setSelected(false);
+                    }
+                });
+                
+                cells[i][j].setOnMouseClicked(event -> {
+                    if (event.getButton() == MouseButton.SECONDARY) {
+                        if (!((Cell)event.getSource()).isRevealed()) {
+                            //Set the flag ON if OFF and vice-versa
+                            boolean flagged = !((Cell)event.getSource()).isFlagged();
+                        }
                     }
                 });
             }

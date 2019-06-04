@@ -34,15 +34,16 @@ public class Cell extends ToggleButton {
     }
     
     /**
-     * Display the cell according to its value
+     * Display a single cell, according to its value
      * Display the digit with the correct color Or a mine/flag image
+     * After that, set the click event to indicate the neighbors
      */
-    public void displayCell() {
-        System.out.println("The cell "+ row +", "+ col + " with value "+ value +" is displayed!");
-        
-        if (value == -1) {
+    public void displaySingleCell() {
+        revealed = true;
+
+        if (isMine()) {
             displayMine();
-        } else if (value == 0) {
+        } else if (isBlank()) {
             displayBlank();
         } else {
             displayDigit();
@@ -52,12 +53,13 @@ public class Cell extends ToggleButton {
         //Hotfix
         this.setMinWidth(29);
         this.setMinHeight(31);
-        
+
+        //TODO Check if GAME WON
+
         this.setOnAction(event -> {
-            System.out.println("Revealed cell clicked again!");
+            //TODO revealed cell clicked Event
             this.setSelected(true);
         });
-        
     }
     
     /**

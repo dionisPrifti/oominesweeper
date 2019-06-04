@@ -1,6 +1,4 @@
 package minesweeper;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 import util.BoardUtil;
@@ -93,62 +91,14 @@ public class Board {
             for (int col = 0; col < totalCols; col++) {
                 //Do this for non-mines
                 if (board[row][col] != -1) {
-                    int numberOfAdjacentMines = getAdjacentMineCount(row, col);
+                    int numberOfAdjacentMines = BoardUtil.getAdjacentMineCount(row, col);
                     board[row][col] = numberOfAdjacentMines;
                     cells[row][col].setValue(numberOfAdjacentMines);
                 }
             }
         }
     }
-    
-    /**
-     * Get a list of all the neighbor cells 
-     * 
-     * @param row
-     * @param col
-     * @return
-     */
-    public List<Cell> getNeighbours(int row, int col) {
-        List<Cell> neighbours = new ArrayList<>();
-        
-        for (int rowOffset : BoardUtil.OFFSETS) {
-            for (int colOffset : BoardUtil.OFFSETS) {
-                //Do not include the cell itself
-                if (! (rowOffset == 0 && colOffset == 0)) {
-                    
-                    //Add as a neighbor only if it is a valid cell 
-                    //(within the range of the board)
-                    if (BoardUtil.isValid(row + rowOffset, col + colOffset)) {
-                        neighbours.add(cells[row + rowOffset][col + colOffset]);
-                    }
-                }
-            }
-        }
 
-        return neighbours;
-    }
-    
-    /**
-     * Get the number of the adjacent mines to a certain Cell
-     * 
-     * @param row
-     * @param col
-     * @return
-     */
-    public int getAdjacentMineCount(int row, int col) {
-        List<Cell> neighbours = getNeighbours(row, col);
-
-        int mineCount = 0;
-        for (Cell neighbor : neighbours) {
-            //Using getters on the Cell class
-            //neighbor.getValue() MUST BE EUQAL TO board[neighbor.getRow()][neighbor.getCol()]
-            if (neighbor.getValue() == -1) {
-                  mineCount++;
-            }
-        }
-        return mineCount;
-    }
-    
     public int getTotalRows() {
         return totalRows;
     }

@@ -88,7 +88,7 @@ public class Cell extends ToggleButton {
      * Display spaces for a blank cell
      */
     public void displayBlank() {
-        this.setText("  ");
+        this.setText("");
     }
     
     /**
@@ -98,6 +98,7 @@ public class Cell extends ToggleButton {
         this.setText(value + "");
         this.setStyle("-fx-font-weight: bold");
         this.setTextFill(StyleUtil.getColorForValue(value));
+        this.setGraphic(null);
     }
     
     /**

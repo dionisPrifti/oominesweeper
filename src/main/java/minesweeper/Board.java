@@ -41,18 +41,7 @@ public class Board {
 
         //Print the generated array for testing purposes
         BoardUtil.printBoard(board, totalRows, totalCols);
-        
-        //TODO remove this method call, for testing purposes only
-        revealCells();
-    }
-    
-    //TODO For testing purposes only
-    public void revealCells() {
-        for (int i = 0; i < totalRows; i++) {
-            for (int j = 0; j < totalCols; j++) {
-                cells[i][j].setRevealed(true);
-            }
-        }
+
     }
     
     /**

@@ -120,8 +120,6 @@ public class Cell extends ToggleButton {
 
     public void setRevealed(boolean revealed) {
         this.revealed = revealed;
-
-        displayCell();
     }
 
     public boolean isFlagged() {

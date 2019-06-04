@@ -100,6 +100,35 @@ public class Cell extends ToggleButton {
         this.setTextFill(StyleUtil.getColorForValue(value));
     }
     
+    /**
+     * Display the flag image
+     */
+    public void displayFlag() {
+        Image flagImage = new Image(getClass().getResourceAsStream("/images/flag.png"));
+        ImageView flagImageView = new ImageView(flagImage);
+        flagImageView.setFitHeight(21);
+        flagImageView.setFitWidth(21);
+
+        this.setText("");
+        this.setGraphic(flagImageView);
+        this.setPadding(new Insets(5,4,5,4));
+        
+        //TODO Check if GAME WON
+    }
+    
+    /**
+     * Display spaces for a blank cell
+     */
+    public void displayHidden() {
+        ImageView noImage = new ImageView();
+        noImage.setImage(null);        
+        noImage.setFitHeight(21);
+        noImage.setFitWidth(21);
+        
+        this.setGraphic(noImage);
+        this.setText("");
+    }
+    
     public int getRow() {
         return row;
     }
@@ -138,6 +167,12 @@ public class Cell extends ToggleButton {
 
     public void setFlagged(boolean flagged) {
         this.flagged = flagged;
+        
+        if (flagged) {
+            displayFlag();
+        } else {
+            displayHidden();
+        }
     }
     
     /**

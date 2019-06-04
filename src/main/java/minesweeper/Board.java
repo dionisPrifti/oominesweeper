@@ -23,6 +23,7 @@ public class Board {
         this.totalMines = gameMode.getTotalMines();
 
         this.cells = cells;
+        BoardUtil.board = this;
     }
     
     /**
@@ -44,7 +45,7 @@ public class Board {
         BoardUtil.printBoard(board, totalRows, totalCols);
         
         //TODO remove this method call, for testing purposes only
-        revealCells();
+        //revealCells();
     }
     
     //TODO For testing purposes only
@@ -117,7 +118,7 @@ public class Board {
                     
                     //Add as a neighbor only if it is a valid cell 
                     //(within the range of the board)
-                    if (BoardUtil.isValid(row + rowOffset, col + colOffset, totalRows, totalCols)) {
+                    if (BoardUtil.isValid(row + rowOffset, col + colOffset)) {
                         neighbours.add(cells[row + rowOffset][col + colOffset]);
                     }
                 }

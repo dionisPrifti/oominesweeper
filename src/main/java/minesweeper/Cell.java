@@ -3,7 +3,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
+import util.BoardUtil;
 import util.StyleUtil;
 
 public class Cell extends ToggleButton {
@@ -20,6 +20,8 @@ public class Cell extends ToggleButton {
     private int value;
     
     private boolean revealed;
+
+    private boolean flagged;
     
     /**
      * Creates a new Cell with the text displayed on the ToggleButton
@@ -33,30 +35,39 @@ public class Cell extends ToggleButton {
     }
     
     /**
-     * Display the cell according to its value
+     * Display a single cell, according to its value
      * Display the digit with the correct color Or a mine/flag image
+     * After that, set the click event to indicate the neighbors
      */
-    public void displayCell() {
-        System.out.println("The cell "+ row +", "+ col + " with value "+ value +" is displayed!");
-        
-        if (value == -1) {
+    public void displaySingleCell() {
+        revealed = true;
+
+        if (isMine()) {
             displayMine();
-        } else if (value == 0) {
+        } else if (isBlank()) {
             displayBlank();
         } else {
             displayDigit();
         }
-        
+
         this.setSelected(true);
         //Hotfix
         this.setMinWidth(29);
         this.setMinHeight(31);
+
+        //TODO Check if GAME WON
         
         this.setOnAction(event -> {
-            System.out.println("Revealed cell clicked again!");
+            //TODO revealed cell clicked Event
             this.setSelected(true);
         });
-        
+    }
+    
+    /**
+     * Display this cell and try to display its neighbors
+     */
+    public void displayNeighborCells() {
+        BoardUtil.revealNeighbors(this);
     }
     
     /**
@@ -119,8 +130,34 @@ public class Cell extends ToggleButton {
 
     public void setRevealed(boolean revealed) {
         this.revealed = revealed;
-        
-        displayCell();
+    }
+
+    public boolean isFlagged() {
+        return flagged;
+    }
+
+    /**
+     * Quick check on the Cell value whether it's a mine
+     * @return
+     */
+    public boolean isMine() {
+        if (value == -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }    
+
+    /**
+     * Quick check on the Cell value whether it's a blank cell
+     * @return
+     */
+    public boolean isBlank() {
+        if (value == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
 }

@@ -24,6 +24,9 @@ public class Main extends Application {
     
     TilePane tile = new TilePane();
     
+    Label flagsNumberLabel;
+    Label totalMinesLabel;
+    
     boolean playing = false;
     
     @Override
@@ -57,7 +60,7 @@ public class Main extends Application {
         flagImageView.setFitHeight(30);
         flagImageView.setFitWidth(30);
         
-        Label flagsNumberLabel = new Label("00");
+        flagsNumberLabel = new Label("00");
         flagsNumberLabel.setFont(new Font(20));
 
         Image mineImage = new Image(getClass().getResourceAsStream("/images/mine.png"));
@@ -65,7 +68,7 @@ public class Main extends Application {
         mineImageView.setFitHeight(30);
         mineImageView.setFitWidth(30);
         
-        Label totalMinesLabel = new Label(GameMode.EASY.getTotalMines() + "");
+        totalMinesLabel = new Label(GameMode.EASY.getTotalMines() + "");
         totalMinesLabel.setFont(new Font(20));
 
         controlLayout.getChildren().addAll(gameModeCombo, newGameBtn);
@@ -173,6 +176,8 @@ public class Main extends Application {
                             boolean flagged = !((Cell)event.getSource()).isFlagged();
                             
                             ((Cell)event.getSource()).setFlagged(flagged);
+
+                            addOrRemoveFlag(flagged);
                         }
                     }
                 });
@@ -180,4 +185,42 @@ public class Main extends Application {
         }
     }
     
+    /**
+     * Add or Remove a flag, by updating the Labels
+     * @param add
+     */
+    public void addOrRemoveFlag(boolean add) {
+        int offset = 1;
+        
+        if (!add) {
+            offset = -1;
+        }
+        
+        int flagNumber = Integer.parseInt(flagsNumberLabel.getText()) + offset;
+        String flagNumberAsString = getStringRepresentationOfNumber(flagNumber);
+        flagsNumberLabel.setText(flagNumberAsString);
+    
+        int minesNumber = Integer.parseInt(totalMinesLabel.getText()) - offset;
+        String minesNumberAsString = getStringRepresentationOfNumber(minesNumber);
+        totalMinesLabel.setText(minesNumberAsString);
+    }
+    
+    /**
+     * String Representation of a number to be displayed in the labels
+     * Display a 0 before a single digit, except if it's negative
+     * 
+     * @param number
+     * @return
+     */
+    public String getStringRepresentationOfNumber(int number) {
+        String numberAsString;
+        
+        if (number < 10 && number >= 0) {
+            numberAsString = "0" + number;
+        } else {
+            numberAsString = "" + number;
+        }
+        
+        return numberAsString;
+    }
 }

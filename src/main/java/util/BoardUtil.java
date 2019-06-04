@@ -134,5 +134,23 @@ public class BoardUtil {
         return mineCount;
     }
     
+    /**
+     * Reveal all hidden neighbors recursively
+     * 
+     * @param cell
+     */
+    public static void revealNeighbors(Cell cell) {
+        //A cell should be revealed, if it is not already revealed, and is not a flag
+        if (!cell.isRevealed() && !cell.isFlagged()) {
 
+            cell.displaySingleCell();
+
+            if (cell.isBlank()) {
+                List<Cell> neighbors = BoardUtil.getNeighbours(cell.getRow(), cell.getCol());
+                neighbors.forEach(n -> revealNeighbors(n));
+            }
+        } else {
+            return;
+        }
+    }
 }

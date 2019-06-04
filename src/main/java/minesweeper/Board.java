@@ -118,7 +118,7 @@ public class Board {
                     
                     //Add as a neighbor only if it is a valid cell 
                     //(within the range of the board)
-                    if (BoardUtil.isValid(row + rowOffset, col + colOffset, totalRows, totalCols)) {
+                    if (BoardUtil.isValid(row + rowOffset, col + colOffset)) {
                         neighbours.add(cells[row + rowOffset][col + colOffset]);
                     }
                 }

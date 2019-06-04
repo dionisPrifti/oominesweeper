@@ -38,10 +38,10 @@ public class BoardUtil {
      * @param totalCols
      * @return
      */
-    public static boolean isValid(int row, int col, int totalRows, int totalCols) { 
+    public static boolean isValid(int row, int col) { 
         // Returns true if row number and column number is in range 
-        return ((row >= 0) && (row < totalRows) && 
-               (col >= 0) && (col < totalCols)); 
+        return ((row >= 0) && (row < board.getTotalRows()) && 
+               (col >= 0) && (col < board.getTotalCols()));
     }
 
     /**

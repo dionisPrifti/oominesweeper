@@ -3,6 +3,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import util.BoardUtil;
 import util.StyleUtil;
 
 public class Cell extends ToggleButton {
@@ -62,6 +63,13 @@ public class Cell extends ToggleButton {
         });
     }
     
+    /**
+     * Display this cell and try to display its neighbors
+     */
+    public void displayNeighborCells() {
+        BoardUtil.revealNeighbors(this);
+    }
+        
     /**
      * Display the mine image
      */

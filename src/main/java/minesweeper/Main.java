@@ -149,13 +149,19 @@ public class Main extends Application {
                 cells[i][j] = new Cell(i, j, "  ");
                 tile.getChildren().add(cells[i][j]);
                 
-                cells[i][j].setOnAction(e -> {
-                    if (!playing) {
-                        playing = true;
-                      
-                        //Generate Board
-                        Board board = new Board(gameMode, cells);
-                        board.generateBoard((Cell)e.getSource());
+                cells[i][j].setOnAction(event -> {
+                    if (!((Cell)event.getSource()).isFlagged()) {
+                        if (!playing) {
+                            playing = true;
+
+                            //Generate Board
+                            Board board = new Board(gameMode, cells);
+                            board.generateBoard((Cell)event.getSource());
+                        }
+
+                        ((Cell)event.getSource()).displayNeighborCells();
+                    } else {
+                        ((Cell)event.getSource()).setSelected(false);
                     }
                 });
             }

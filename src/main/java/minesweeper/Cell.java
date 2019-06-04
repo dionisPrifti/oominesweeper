@@ -136,6 +136,10 @@ public class Cell extends ToggleButton {
         return flagged;
     }
 
+    public void setFlagged(boolean flagged) {
+        this.flagged = flagged;
+    }
+    
     /**
      * Quick check on the Cell value whether it's a mine
      * @return

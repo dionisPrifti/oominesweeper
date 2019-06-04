@@ -171,6 +171,8 @@ public class Main extends Application {
                         if (!((Cell)event.getSource()).isRevealed()) {
                             //Set the flag ON if OFF and vice-versa
                             boolean flagged = !((Cell)event.getSource()).isFlagged();
+                            
+                            ((Cell)event.getSource()).setFlagged(flagged);
                         }
                     }
                 });

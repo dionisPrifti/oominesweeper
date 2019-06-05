@@ -58,7 +58,12 @@ public class Cell extends ToggleButton {
         //TODO Check if GAME WON
 
         this.setOnAction(event -> {
-            //TODO revealed cell clicked Event
+            if (BoardUtil.numberOfFlaggedNeighbors(this) >= this.getValue()) {
+                BoardUtil.autoRevealNeighbors(this);
+            } else {
+                BoardUtil.indicateNeighbors(this); 
+            }
+            
             this.setSelected(true);
         });
     }

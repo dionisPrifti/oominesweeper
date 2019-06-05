@@ -3,6 +3,7 @@ package util;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.concurrent.Task;
 import minesweeper.Board;
 import minesweeper.Cell;
 
@@ -184,6 +185,48 @@ public class BoardUtil {
         List<Cell> neighbors = BoardUtil.getNeighbours(cell.getRow(), cell.getCol());
         for (Cell neighbor : neighbors) {
                 revealNeighbors(neighbor);
+        }
+    }
+    
+    /**
+     * Indicate all hidden neighbors
+     * Using JavaFX concurrent Task
+     * 
+     * @param cell
+     */
+    public static void indicateNeighbors(Cell cell) {
+        List<Cell> neighbors = BoardUtil.getNeighbours(cell.getRow(), cell.getCol());
+        
+        for (Cell neighbor : neighbors) {
+            if (!neighbor.isRevealed() && !neighbor.isFlagged()) {
+                String oldStyle = neighbor.getStyle();
+                neighbor.setStyle("-fx-background-color: #FFEDFF; ");
+                
+                /**
+                 * Tasks exposes additional state and observable properties useful for programming asynchronous tasks in JavaFX, 
+                 * as defined in the Worker interface. An implementation of Task must override the call() method
+                 * 
+                 * The Void class is an uninstantiable placeholder class to hold a reference 
+                 * to the Class object representing the Java keyword void.
+                 */
+                Task<Void> sleeper = new Task<Void>() {
+                    @Override
+                    protected Void call() throws Exception {
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException e) {
+                        }
+                        return null;
+                    }
+                };
+                
+                //Set the old style back
+                sleeper.setOnSucceeded(event -> {
+                    neighbor.setStyle(oldStyle);
+                });
+                
+                new Thread(sleeper).start();
+            }
         }
     }
     

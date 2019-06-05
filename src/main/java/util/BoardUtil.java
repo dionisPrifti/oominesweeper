@@ -229,5 +229,28 @@ public class BoardUtil {
             }
         }
     }
+
+    /**
+     * Open all hidden unflagged cells when Game Over / Won
+     */
+    public static void openCells() {
+        for(Cell[] cells : board.getCells()) {
+            for (Cell cell : cells) {
+                if (!cell.isRevealed() && !cell.isFlagged()) {
+                    cell.displaySingleCell();
+                }
+            }
+        }
+    }
     
+    /**
+     * Disable all cells when Game Over / Won
+     */
+    public static void disableCells() {
+        for(Cell[] cells : board.getCells()) {
+            for (Cell cell : cells) {
+                cell.setDisable(true);
+            }
+        }
+    }
 }

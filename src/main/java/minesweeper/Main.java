@@ -20,6 +20,7 @@ import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import util.BoardUtil;
 import util.Info;
 
 public class Main extends Application {
@@ -149,7 +150,10 @@ public class Main extends Application {
                 gameResultLabel1.setText("Game");
                 gameResultLabel2.setText("Over!");
                 
-                //TODO reveal all mines
+                //Open all cells and disable them
+                BoardUtil.openCells();
+                BoardUtil.disableCells();
+                
             }
         });
         

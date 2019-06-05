@@ -87,6 +87,9 @@ public class Cell extends ToggleButton {
         this.setText("");
         this.setGraphic(testMineImageView);
         this.setPadding(new Insets(5,4,5,4));
+        
+        //Game Over!
+        Main.gameOverProperty.set(true);
     }
     
     /**

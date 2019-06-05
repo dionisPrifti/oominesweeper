@@ -1,5 +1,7 @@
 package minesweeper;
 import javafx.application.Application;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
@@ -21,6 +23,8 @@ import javafx.stage.Stage;
 import util.Info;
 
 public class Main extends Application {
+    
+    static BooleanProperty gameOverProperty = new SimpleBooleanProperty();
     
     TilePane tile = new TilePane();
     
@@ -115,6 +119,9 @@ public class Main extends Application {
                     
                     flagsNumberLabel.setText("00");
                     totalMinesLabel.setText(newValue.getTotalMines()+"");
+
+                    smilingImageView.setImage(new Image(getClass().getResourceAsStream("/images/smiling.png")));
+                    gameOverProperty.set(false);
                     
                     playing = false;
 
@@ -122,6 +129,18 @@ public class Main extends Application {
                 });
                 
                 new Thread(task).start();
+            }
+        });
+        
+        gameOverProperty.addListener((observable, oldValue, newValue) -> {
+            // Only if completed
+            if (newValue) {
+                System.out.println("GAME OVER!!!");
+                playing = false;
+
+                smilingImageView.setImage(new Image(getClass().getResourceAsStream("/images/sad.png")));
+
+                //TODO reveal all mines
             }
         });
         

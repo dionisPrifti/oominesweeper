@@ -26,6 +26,7 @@ import util.Info;
 public class Main extends Application {
     
     static BooleanProperty gameOverProperty = new SimpleBooleanProperty();
+    static BooleanProperty gameWonProperty = new SimpleBooleanProperty();
     
     TilePane tile = new TilePane();
     
@@ -128,6 +129,7 @@ public class Main extends Application {
 
                     smilingImageView.setImage(new Image(getClass().getResourceAsStream("/images/smiling.png")));
                     gameOverProperty.set(false);
+                    gameWonProperty.set(false);
                     gameResultLabel1.setText("");
                     gameResultLabel2.setText("");
                     
@@ -154,6 +156,23 @@ public class Main extends Application {
                 BoardUtil.openCells();
                 BoardUtil.disableCells();
                 
+            }
+        });        
+        
+        gameWonProperty.addListener((observable, oldValue, newValue) -> {
+            // Only if completed
+            if (newValue) {
+                System.out.println("YOU WON!!!");
+                playing = false;
+
+                smilingImageView.setImage(new Image(getClass().getResourceAsStream("/images/happy.png")));
+
+                gameResultLabel1.setText("You");
+                gameResultLabel2.setText("Won!");
+
+                //Open all cells and disable them
+                BoardUtil.openCells();
+                BoardUtil.disableCells();
             }
         });
         

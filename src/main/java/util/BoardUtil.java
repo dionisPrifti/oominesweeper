@@ -253,4 +253,44 @@ public class BoardUtil {
             }
         }
     }
+    
+    /**
+     * Check whether the game is won, on each move - reveal or flag a cell
+     * The game is won when all the mines are flagged
+     * @return
+     */
+    public static boolean checkIfGameWon() {
+        int foundMines = 0;
+        int foundFlags = 0;
+
+        //The user may choose to flag a cell even before start playing
+        if (board == null) {
+            return false;
+        }
+
+        for (Cell[] cells : board.getCells()) {
+            for (Cell cell : cells) {
+                //All cells must be opened and only mines should be flagged
+                if (!cell.isRevealed() && !cell.isFlagged()) {
+                    return false;
+                }
+
+                //avoiding that the user flags all cells
+                if (cell.isFlagged()) {
+                    foundFlags++;
+                }
+
+                if (cell.isMine() && cell.isFlagged()) {
+                    foundMines++;
+                }
+            }
+        }
+
+        if (foundMines == board.getTotalMines() && foundMines == foundFlags) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

@@ -59,6 +59,11 @@ public class Main extends Application {
         smilingImageView.setFitHeight(30);
         smilingImageView.setFitWidth(30);
         
+        Label gameResultLabel1 = new Label("");
+        gameResultLabel1.setFont(new Font(20));
+        Label gameResultLabel2 = new Label("");
+        gameResultLabel2.setFont(new Font(20));
+        
         Image flagImage = new Image(getClass().getResourceAsStream("/images/flag.png"));
         ImageView flagImageView = new ImageView(flagImage);
         flagImageView.setFitHeight(30);
@@ -85,8 +90,8 @@ public class Main extends Application {
         HBox.setHgrow(region2, Priority.ALWAYS);
 
         statusLayout.getChildren().addAll(flagImageView, flagsNumberLabel, region1, 
-                                          smilingImageView, region2,
-                                          mineImageView, totalMinesLabel);
+                                          gameResultLabel1, smilingImageView, gameResultLabel2, 
+                                          region2, mineImageView, totalMinesLabel);
         
         //Building the initial grid
         populateTilePane(GameMode.EASY);
@@ -122,6 +127,8 @@ public class Main extends Application {
 
                     smilingImageView.setImage(new Image(getClass().getResourceAsStream("/images/smiling.png")));
                     gameOverProperty.set(false);
+                    gameResultLabel1.setText("");
+                    gameResultLabel2.setText("");
                     
                     playing = false;
 
@@ -139,7 +146,9 @@ public class Main extends Application {
                 playing = false;
 
                 smilingImageView.setImage(new Image(getClass().getResourceAsStream("/images/sad.png")));
-
+                gameResultLabel1.setText("Game");
+                gameResultLabel2.setText("Over!");
+                
                 //TODO reveal all mines
             }
         });

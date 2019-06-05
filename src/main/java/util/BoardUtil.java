@@ -153,4 +153,24 @@ public class BoardUtil {
             return;
         }
     }
+    
+    /**
+     * Get the number of flagged neighbors of a cell
+     * 
+     * @param cell
+     * @return
+     */
+    public static int numberOfFlaggedNeighbors(Cell cell) {
+        int number = 0;
+        
+        List<Cell> neighbors = BoardUtil.getNeighbours(cell.getRow(), cell.getCol());
+        for (Cell neighbor : neighbors) {
+            if (neighbor.isFlagged()) {
+                number++;
+            }
+        }
+        
+        return number;
+    }
+
 }

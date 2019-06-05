@@ -55,7 +55,8 @@ public class Cell extends ToggleButton {
         this.setMinWidth(29);
         this.setMinHeight(31);
 
-        //TODO Check if GAME WON
+        //Check if GAME WON
+        Main.gameWonProperty.set(BoardUtil.checkIfGameWon());
 
         this.setOnAction(event -> {
             if (BoardUtil.numberOfFlaggedNeighbors(this) >= this.getValue()) {

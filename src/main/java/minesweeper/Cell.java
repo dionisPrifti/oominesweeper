@@ -123,7 +123,8 @@ public class Cell extends ToggleButton {
         this.setGraphic(flagImageView);
         this.setPadding(new Insets(5,4,5,4));
         
-        //TODO Check if GAME WON
+        //Check if GAME WON
+        Main.gameWonProperty.set(BoardUtil.checkIfGameWon());
     }
     
     /**

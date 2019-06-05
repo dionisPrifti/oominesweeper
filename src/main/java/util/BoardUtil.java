@@ -172,5 +172,19 @@ public class BoardUtil {
         
         return number;
     }
-
+ 
+    /**
+     * Method to reveal all the neighbors of a cell
+     * Used when clicking on a revealed cell that has already a number of 
+     * flagged neighbors equal or greater than its value
+     * 
+     * @param cell
+     */
+    public static void autoRevealNeighbors(Cell cell) {
+        List<Cell> neighbors = BoardUtil.getNeighbours(cell.getRow(), cell.getCol());
+        for (Cell neighbor : neighbors) {
+                revealNeighbors(neighbor);
+        }
+    }
+    
 }

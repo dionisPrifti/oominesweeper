@@ -88,7 +88,6 @@ public class Main extends Application {
                 @Override 
                 public GameMode call() throws Exception {
                     GameMode gameMode = gameModeCombo.getSelectionModel().getSelectedItem();
-                    //updateMessage(gameMode.toString());
                     updateValue(gameMode);
                     return gameMode;
                 }

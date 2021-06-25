@@ -1,0 +1,36 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 6 - Change game mode Event
+
+On the previous video we wrote the GameMode enum.
+Now, let's use this enum to change the game mode on the game.
+For this we need the click event on New Game button.
+
+There are different ways how to set events on Java FX, but we will use the java 8 lambda expression.
+
+...(Add a syso on onAction event fo the button, to test it.)
+
+Now, we can understand that when we create a new game, a couple of things should change:
+First, the window width and height.
+Second, the flags number should be reset to 0 and the total mines number should be shown, according to the selected
+game mode.
+Finally, the TilePane should be repopuplate with new toggle buttons.
+
+To do this, initially we need a populateTilePane method which popuplates it by the selected game mode.
+
+Let's declare the TilePane as a member variable of the Main class, so that we can access it everywhere we need.
+We will later use it differently.
+
+Now, let's write the populate method and clean up unnecessary code.
+
+...(Add TilePane as a member variable. Write populateTilePane method.)
+
+Now, let's deal with the click event of the New Game Button.
+We need here a thread which runs and updates the values on the stage, according to the new
+game mode selected. For this scenario we have the concurrent.Task from JavaFx, which has a call() method
+that allows us to update the value. This value is than observed and listened and used accordingly.
+
+This all may seem a little complicated at the beginning, so let's write it together.
+
+...(Finished the click event for the New Game Button.)
+
+That was it for this video. Before continuing to the next one, please make sure you understand the basic events and 
+listeners in Java FX.

@@ -1,0 +1,37 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 12 - Game Generation 4, Random Mines
+
+Finally, we will generate the board and place the mines randomly. 
+
+Let's go ahead, write the algorithm and explain it along the way. As we explained earlier, this will be a safe version of Minesweeper,
+meaning the first cell revealed is guaranteed to be blank. For that reason, the board generation will happen after we click on the first
+cell. We'll have a generateBoard() method in the board class, which will take as parameters the first cell clicked.
+
+First we'll add the totalMines member and its getter method on the Board class. 
+
+... (Add totalMines and its gettor on the Board class.)
+
+Now, the logic for the board generation is simple. 
+First, we will place the mines randomly making sure that they are not in the the start cell or in its adjacent cells.
+Second, we will place the numbers indicating the mines in the adjacent cells. The rest will be blank by default.
+
+... (Add generateBoard(firstCell) method.)
+
+We have also to set the -1 value to the cells, so we will add the setters methods also on the Cell class.
+
+... (Add the small fix to add the value to the cells, when mines are generated and when number are calculated - 2 fix commits)
+
+Ok, that was it. Now let's test it. Upon the first click, we need to create a new Board object and call the generateBoard() method.
+To create the Board object we should add a constructor which takes as parameters the gameMode and the firstCell clicked.
+
+... (Add the constructor on the Board class and generate the board upon the first click.)
+
+We will test it by adding a printBoard() method on the BoardUtil class, which will print the generated board.
+
+... (Add the printBoard() on the BoardUtil and call it after generating the baord.)
+
+Ok, let's have some new games and see that it is finally working.
+
+... (Create some new games and check the printed board on the console.)
+
+So, we generated the board finally. I would say we are like half-way done.
+See you on the next video, where we will display the cells.

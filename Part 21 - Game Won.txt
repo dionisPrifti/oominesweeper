@@ -1,0 +1,37 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 21 - Game Won
+
+Congratulations, you made it so far! Now finally we will have a game won.
+Different minesweeper versions have different rules to end the game.
+For example in some of them, if there is only one hidden cell and only one mine left, the game 
+will automatically flag that hidden cell as a mine and finish the game.
+In some others, if you reach the numbers of flags equal to the total mines, the game reveals all the
+hidden cells and then it might be a game win or game over.
+
+Our rule will be simpler and safer:
+
+Game Won! -> When all digits and blanks are revealed and all the mines are flagged.
+
+So, no auto-revealing or auto-flagging.
+
+Ok, now we need a method to implement this logic.
+
+... (Add the checkIfGameWon() method.)
+
+Now, we have to keep a Boolean Property in the Main class, similar to the game Over property.
+And then change the labels and the face icon accordingly.
+
+... (Add the gameWonProperty and its listener in the Main class.)
+
+A last step is to check if the game is actually finished and won on each new cell revealed and on each cell flagged.
+We should check on both of them because the game can finish either by revealing hidden cells or by setting a flag on the last cell.
+
+... (Check if game won on each new cell revealed.)
+... (Check if game won on each cell flagged.)
+
+Let's play a simple game and check what we've done.
+
+Okay now, that seems pretty cool! Congratulations, you just created your own version of Minesweeper!
+
+In the next videos, I will just talk a little about possible improvements and finish our amazing app!
+
+See you there!

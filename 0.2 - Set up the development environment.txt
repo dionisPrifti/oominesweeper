@@ -1,0 +1,25 @@
+Hey Guys, welcome to my 'OO Minesweeper', Intro - Set up development environment
+
+In this tutorial I'll give a brief overview on how to setup up the development environment with eclipse and Java FX.
+This tutorial series is not for complete beginners, so I am assuming you already have them installed, so I am not getting into too
+much details.
+
+1. First, download the java development kit, if you don't have that already.
+You can either download the open source Open JDK from this link (https://openjdk.java.net/), which is also in the description below,
+or Java SE Development Kit 8 from (https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), also in the
+description. Then you have to install them and have the PATH in the system environment variables.
+
+Then go ahead and download Eclipse from the official site. You can choose the right package for your computer, we just need the 
+Eclipse for Java developers here (https://www.eclipse.org/downloads/packages/). Feel free to download the latest version, there
+should be no difference for our tutorial. Just so you know, I am using Eclipse for Java Developers 2018-09.
+
+So, the last piece we need is Java FX. We will use Maven and Git in this tutorial series, so at any time you can check out the code
+and hopefully be able to run it directly in your pc. But we need the JavaFX runtime in order to run it locally.
+
+After downloading and installing eclipse, go to Help -> install new software, choose All available sites and search for:
+e(fx)clipse. Select and install the found package. If you encounter any problem in this section, go over here 
+(https://www.eclipse.org/efxclipse/install.html) and check the documentation.
+
+Wait for the installation to finish, you can track the progress in the footer, then restart eclipse and we are ready to go.
+
+In the next tutorial we will continue with creating our Java FX project with Maven and Git.

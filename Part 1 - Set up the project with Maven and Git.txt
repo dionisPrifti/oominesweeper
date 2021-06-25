@@ -1,0 +1,46 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 1 - Set up the project with Maven and Git
+
+In this tutorial I'll explain how to set up Maven and Git and how to work with the code in GitHub for this project.
+
+So, first if you don't have Maven installed go over here (https://maven.apache.org/install.html) and follow the instructions.
+Download the archive, unzip it, add the bin directory to the PATH system variable and make sure everything is working by
+trying mvn -v in your command shell. If you see the installed maven version, you are good to go.
+
+Next, let's go and check out the installation for git. There are many ways how to use git locally and I am assuming you already
+have worked with that. If not, go to (https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and
+find the download link for your operating system. For windows, go to (https://git-scm.com/download/win) to directly donwload it.
+Next, make sure you have Git Cmd and Git Gui installed. These are the git tools I will use for this tutorial, as they are very easy
+and minimal and won't distract you with too much git details.
+
+In windows, go to the search bar and search for 'git cmd' and then 'git gui' and make sure you have them both installed.
+
+Let's now see how we can work efficiently with github during the course of this video series. I will use just the basic git commands, if you
+have difficulties understanding them, check them out and in a couple of minutes you should have an idea of what git is all about.
+
+Go to my profile in github (https://github.com/dionisPrifti) and find 'OO Minesweeper' repository. Clone it locally by using this command in git bash:
+git clone https://github.com/dionisPrifti/oominesweeper.git
+
+Open up the project in eclipse and wait until the configuration is done. Keep the git bash open for the next git commands.
+
+Maven holds the dependencies and configuration in a file called pom.xml. If we open this file in github, the most important parts are the java fx dependency and
+the Apache Maven Compiler Plugin 1.8, which has support for Java 8 features we will be using later on, like lambda expressions.
+
+I will create a different branch for each video of this course and I will name it simply part-x. So, the full code for this video would be
+in branch part-1. To check out that branch, run these commands:
+git fetch (just to be sure)
+git checkout part-1
+git pull (again, just to be sure)
+
+And then do a maven clean install with this command:
+
+mvn clean install
+
+Let's do this for the first part and make sure everything is correct. So:
+git fetch
+git checkout part-1
+git pull
+mvn clean install
+
+Run the project in eclipse.
+
+Here we go, we will continue to the next tutorial, understanding Minesweeper game logic.

@@ -1,0 +1,40 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 4 - Initial Gui Design
+
+Ok, in this video I will try to create the board for our game. 
+Let's check again the minesweeper game gui, I have drawn a simple mock up.
+
+It consists of a top panel and the board on the bottom.
+We have the difficulty first, then the New Game button. As in the classic windows game, we have in the center
+the happy or sad face, then the number of flags and the total number of mines remaining.
+
+The rest is just the board of the cells, initially hidden.
+
+So, let's see how to build this with JavaFx. First we have to understand what layout we need here.
+The biggest container would be a vertical pane, with the control panel on top and the grid on the bottom.
+This is called a VBox in JavaFx.
+The control panel itself is a group of elements aligned horizontally, so we can use a HBox here with some spacers.
+
+Last, we need the grid of the cells and exactly for this scenario JavaFx provides us the TilePane, which places
+all the tiles in a grid with the same size for each cell.
+
+Now, for you that haven't had any experience with Gui development before, think of the Gui elements as simple Java
+classes that can be rendered and seen by the user. For example, a Button is a class which has a text, has events 
+such as "click events", and we can modify its apparence.
+
+The Gui elements we need for this video are:
+ComboBox - which is the drop down menu that allows us to select one value.
+Image and ImageView - as the name suggests, to display an image
+Label - to display a text
+ToggleButton - a special kind of button which is rendered differently when we click on it, think of it as 
+	a button which has a flag if it is clicked or not
+
+Then, we have the panes or the layouts that we have already seen: HBox, VBox and TilePane.
+
+To add the images, we should create a 'resources' folder under the 'main' folder, and then we can reference all 
+the images from there.
+
+Now, let's finally write the code for what we have explained so far.
+
+...
+
+That was it, on the next video we will play around with the design and then start with the game generation.

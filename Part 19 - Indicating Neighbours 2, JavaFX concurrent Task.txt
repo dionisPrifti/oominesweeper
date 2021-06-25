@@ -1,0 +1,28 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 19 - Indicating neighbours 2, JavaFX concurrent Task
+
+We will continue directly implementing the methods we talked about in the last video.
+Go back and recheck the end of the last video in case you don't remember them.
+
+So the first one is a method to Get the number of flagged neighbors of a cell. The logic is pretty easy: we will
+check all the neighbours and increment the number of those that are flagged. We will add all the methods in the BoardUtil class.
+
+... (Add numberOfFlaggedNeighbors() method in BoardUtil.)
+
+
+Ok, the next method will allow us to reveal all the neighbors of a cell. This will be used when clicking on a revealed cell
+that has already a number of flagged neighbours equal or greater than its value.
+
+... (Add autoRevealNeighbors() in BoardUtil.)
+
+The last method about indication all the hidden neighbours with a small animation is a little tricky. 
+We have to introduce here a task from Java FX concurrent package.
+
+... (Add indicateNeighbors() method with a small animation, using JavaFX concurrent Task.) and explain...
+
+Now, let's call this method on the left mouse click event after a cell is revealed.
+
+... (Add indicating neighbours methods on the left mouse click event on a revealed cell.)
+
+Ok, I think we have a lot of progress done. Now, remains to display Game Over or Game Won and some little details.
+
+See you on the next video where we will start with the Game Over functionality.

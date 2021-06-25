@@ -1,0 +1,27 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 13 - Display Cells
+
+In this video we will display the revealead cells, depending on their value being a digit, blank or a mine.
+
+We already have the displayCell() method in the Cell class. We will expand it by display a mine, blank or a digit.
+For the mine, we will use the mine digit we have in our Gui so far. For a blank, we will just put two spaces on the button text.
+For the digit, we will display the number as button text and for its color I will use the same colors as in the windows version.
+For this, I will introduce a new util class called StyleUtil which will return the color for each digit.
+
+... (Add the dispalyCell() methods. Introduce the StyleUtil class.)
+
+To test this quickly, we can add a test method to reveal all the cells after the first click.
+
+... (Add the revealCells() test method.)
+
+That was it, I think it looks pretty cool so far. Good job guys!
+
+A last think we can add in this video is disabling the cell after first clicking on it.
+You know, in minesweeper when a cell is revealed, it can't go back to the hidden state. That's what we will do now.
+Java Fx seems to have a little bug here, as sometimes it renders the blank cells without padding, so we will make sure
+it will always be okay, by setting the min width and height.
+
+... (Disable a cell after revealing it.)
+
+So, I think that would be enough for this video.
+
+See you on the next video, where we will talk about the playing behaviours.

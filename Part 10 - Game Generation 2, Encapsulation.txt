@@ -1,0 +1,42 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 10 - Game Generation 2, Encapsulation
+
+We will continue with the game generation from the last video.
+
+Now, to keep track where each cell is on this board game, so that we know the real value that is initially hidden, in 
+the Cell class let's have two variables, row and col. Another boolean flag whether the cell is revealed or not is also useful.
+
+So far in these classes we have just declared the variables, without any restriction on the privacy. It's time now to introduce
+one of the four main principles of OOP, called Encapsulation. This principle tells us that the members of a class should be declared
+private and should be accessed by the other classes using getters and setters. Getters and Setters are special methods that just
+get and set this value, and by using them means that we have full control over the variable itself. So, for example, let's say in our
+example, we have just added the row and col members on the Cell class. These values are set once when the Board is created, after that
+we don't need to change them. Which means we can have just a getter for these members, and we make sure in this way the the other classes
+cannot modify these calues.
+
+Let's add these members and their corresponding getters. Any IDE allows us to generate the getters and setters, by using some general
+rules for their names.
+
+... (Add row, col, revealed in Cell. Introduced Encapsulation.)
+
+Also, we can use the setters for more than just setting the value. For example, in Minesweeper when you open a blank cell, all the other
+adjecent cells are revealed recursively. In this case, we can use the setter method of the revealed flag to do this without the need of 
+extra lines.
+
+Let's add the setter method for the revealed flag and add there a method that reveals the digit or the mine on that cell. We will 
+complete the display method on another method, but just to give you the idea of encapsulation.
+
+... (Add the setter method for the revealed flag and the displayCell() method.)
+
+Now, following the Encapsulation principle, let's do the same on the Board class. First we will generate just the getters and add
+the setters later, if we understand during the way that we need them.
+
+... (Add Encapsulation on the Board class.)
+
+To understand how to use the getter methods, let's write a method in the Board class that makes use of them.
+A method we may need here is a method that returns the number of the adjecent mines to a certain cell. Let's go
+ahead and write that.
+
+... (Add getAdjacentMineCount() method.)
+
+Okay, I think it's enough for this video. We will continue on the next one again with the Game generation and explain shortly another
+principle of OOP called Inheritance.

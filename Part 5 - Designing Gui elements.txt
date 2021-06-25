@@ -1,0 +1,21 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 5 - Designing Gui elements
+
+Ok, in this video we will try to align the Gui elements.
+
+First, we can see that the images dispalyed are too big, let's make them the same height as the controls.
+We can change the dimensions by using setFitHeight and setFitWidth.
+
+... (Set the imageView Height and Width.)
+
+Now, if we try to build a 9 by 9 grid, we woud see that the control panel is still too big. So, let's have the 
+controls on top and under them the icons showing the game status.
+
+... (Do the 9x9 grid, then change the controls into two rows.)
+... (Add the padding with Insets - 5,5,5,5)
+... (Add regions to align the status icons: left, center, right)
+... (Set the font size for the labels)
+... (Set the min width and margin for gameDifficultyCombo. Make Easy the default selection.)
+... (Set the icon and title for the application.)
+
+So, that's it for this part.
+In the next video we will focus on the game modes.

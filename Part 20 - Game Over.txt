@@ -1,0 +1,33 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 20 - Game Over
+
+So, let's have a look at our code so far and see what we should change to display Game Over.
+We can use a Boolean Property in the Main class to hold the state of the game.
+A Boolean Property is just a wrapper for a boolean flag, but we also get some useful inherited methods,
+like addListener() that we will use.
+
+(https://docs.oracle.com/javase/8/javafx/api/javafx/beans/property/Property.html)
+
+So, we will introduce a new gameOverProperty in the Main class, set it true from the Cell class when a mine is revealed,
+and use this information to display Game Over and set the state as non-playing.
+Also, remember we have a nice smiling image over here, we will change that to a sad image in case of Game Over and set it back
+to the neutral smiling face when restarted the game.
+
+... (Add the gameOverProperty. Set it true when a mine is revealed, changed the game status and the smiling face.)
+
+Ok, so for the moment we just print out "Game Over!!!" in the console, but we can also display that together with the sad face.
+Again, I won't pay too much attentation to the animations, this could be done fare more beautiful, but anyway, it seems okay.
+
+... (Add labels to display Game Over!)
+
+As you know from almost any Minesweeper version, when the game is over, all the hidden cells are revealed, so that you can see where the 
+rest of the mines where. Those mines that you have already flagged, will remain flagged. After that all the cells are disabled, so that
+you know the game is really over.
+
+To do that we need two small function in BoardUtil, to open all the hidden un-flagged cells and to disable them.
+
+... (Add methods to open all hidden unflagged cells and disable them.)
+
+So, that was it for the Game Over. If you noticed when the game is over, we don't get the confirmation dialog on the New Game button. 
+That is a nice behaviour that we get as a little bonus from our careful programming in the previous videos.
+
+Ok, see you on the next video, where we will finally win a game!

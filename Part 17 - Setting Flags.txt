@@ -1,0 +1,44 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 17 - Setting Flags
+
+In the last two videos we finished implementing the cell revealing events.
+We are now ready to set flags and update the number labels accordingly. 
+
+In the Main class, similar to the left mouse click event, we need another one, fired by the right mouse click.
+For this we may use the onMouseClicked event and check whether the event button is the Secondary button, or the right button.
+
+... (Set the right click event on a cell.)
+
+If you remember when we introduced the flagged property on the Cell class, we just added the getter.
+Now, we also need the setter in order to set the flag value from the right click event.
+
+... (Add the setter for the flagged property, in order to set it from the right click event.)
+
+Let's recap the game behaviours regarding right clicking.
+Right Click on a cell to flag it as a mine (and update the labels)
+	if the cell is already flagged, unflagg it
+	if the cell is already revealed, do not do anything, do not set a flag
+
+We have added the condition that the cell must not be revealed. 
+Now, obviously we have to set the flag image or remove it if already there. 
+We have previously set the mine image, so it shouldn't be a big challenge for you.
+Let's go ahead and write those methods and call them on the setter on the flagged property.
+
+... (Added the displayFlag() and displayHidden() methods.)
+
+Now, all that remain is to update the labels accordingly. We will increase the flag number and decrease the total mine number
+on each new flag and vice-versa on each new cell unflagged.
+This is the same function in fact, just with a different offset, 1 for adding a new flag, and -1 for removing it. 
+Also, the original Microsoft game allowed the user to set more flags than the total mines, which would make the 
+total mine number negative.
+For this reason, and also to add a 0 before one digiti number, we will use an auxilary method to get the 
+String Representation of a number to be displayed in the labels.
+
+... (Updated the labels on each new flag.)
+
+Now, before we close the video, let me show you a little bug we have.
+When you flag a cell, and then unflag it and reveal that cell, the width of the cell becomes too big and the whole grid
+is broken. 
+
+So, let me give you a little homework - try to do that before you start the next video.
+
+So see you there, on the next one, we will continue with the indication of the neighbours.

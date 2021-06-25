@@ -1,0 +1,27 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 3 - Initial Class Design
+
+Let's jump to Eclipse and try to design our classes with the information we have so far.
+
+During our course we will modify our classes by applying OO principles and best practices,
+so at the beginning, for some of you the code may seem a little awkward. That is because I 
+would like to give also some common mistakes and then learn how to avoid them, after having
+understood why it is a bad design in the first place.
+
+Ok, we know that we have a board containing square cells, which are first hidden and then
+reveal a mine, a digit or blank.
+
+So, our first class could simply be a cell, containing the digit. We may have a small
+agreement here, regarding the value of the digits. Let's say we assume a blank cell to have 
+a digit 0, and a mine to have a digit -1. For a "real" digit then, the values would be 1-8.
+8 is the maximal number of the adjacent cells of the center of a 3x3 grid.
+We also have some special cases here for the corners of the grid, but that would be a separate
+video.
+
+Ok, then we have the Board class, which has the dimensions as WIDTH/HEIGHT (ROWS/COLUMNS)
+and an array of Cells of these dimensions.
+
+We also have some default code for our Main JavaFX class, so let's run our application and make sure everything is correct.
+
+Ok, I think these three small classes are enough for now.
+
+Next, we'll build a simple GUI in Java FX for the board and then see how to generate a new game.

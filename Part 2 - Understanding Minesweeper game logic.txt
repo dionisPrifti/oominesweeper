@@ -1,0 +1,24 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 2 - Understanding Minesweeper game logic
+
+So, before we jump into coding, let's check first the Minesweeper game logic.
+
+Minesweeper is a single-player board game. The grid consists of hidden squares, which can be 
+a mine, a digit or just blank.
+The player has to reveal the squares by clicking on them. If a square containing a mine is revealed, 
+the game is over. A digit represents the number of all adjacent mines to that cell.
+If we click on a square which has no mines adjacent, the square becomes blank, and all adjacent squares 
+will be recursively revealed. 
+
+The player uses the information from the digits to find out the mines, marking them with a flag.
+The game is won by correctly finding all the mines in the board.
+
+This is, of course, just the overview of the game, we will dig deeper on each scenario and write our code
+accordingly. If you have never played minesweeper, definitely google it and play it before starting creating
+your own version in Java.
+
+Let's play it together for a while to get used to it... (play a game or two for 2-3 minutes)
+
+So, this was basically it. 
+On the next videos we'll go back and forth to the game rules and design our Java classes accordingly.
+
+Before continuing to the next video, have some fun playing Minesweeper while thinking how to program it yourself.

@@ -38,8 +38,6 @@ public class BoardUtil {
      * An utility method to check whether a given cell (row, col) is a valid cell or not
      * @param row
      * @param col
-     * @param totalRows
-     * @param totalCols
      * @return
      */
     public static boolean isValid(int row, int col) { 

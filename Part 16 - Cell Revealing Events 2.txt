@@ -1,0 +1,33 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 16 - Cell Revealing Events 2
+
+In the last video we started implementing the Cell revealing events and did a little refactoring on the Board and BoardUtil classes.
+
+Let's now continue on the Cell class for the revealing events.
+
+For the moment after generating the game, we display all the cells, to test the game generation and the look of the displayed cells.
+We should remove the call of the displayCell() method on the revealed flag setter and the test method revealCells() on the Board class.
+
+... (Remove the testing methods to initially reveal all the cells.)
+
+Now we should modify the displayCell() method by setting there the revealed flag and making sure that the cell
+can not be set back to the hidden state, once it is revealed.
+Let's rename this method displaySingleCell() as we may have other methods in the future that reveal a set of cells.
+
+... (Modified the displayCell() method.)
+
+Now, what we need is a method in the BoardUtil that reveals all the neighbours of a blank cell up to the digits.
+Careful with this method, you may get easily confused with the recursive call.
+
+... (Add the revealNeighbors() method in BoardUtil to reveal the neighbours of a blank cell resursively.)
+
+As a last step, we should call the method we just introduced from the cell class. And then this method will be called
+from the mouse click event of the cell in the Main class.
+Let's do that and check the modifications we need to make in the Main class.
+
+... (Modify the mouse click event on a cell in the Main class.)
+
+OK, that was it. If that seems like too much, you may want to recheck the last two videos, because in fact this was
+the trickiest part of our application. After that we should just pay attention to the details, but I would say the 
+hardest part is over.
+
+See you in the next video!

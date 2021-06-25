@@ -1,0 +1,51 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 8 - Message Dialogs
+
+This will be the last Gui-related video, before we continue with the game generation.
+We will add now a Confirmation Message Dialog, to make it more user-friendly when starting a new game.
+
+The idea is simple: if we have already started a game, which means at least one tile is revealed, if we decide to 
+start a new game the current game progress will be lost, so we will use a confirmation dialog in that case to ask
+the user if he is sure he wants to start a new game a loose the current one.
+
+If, on the other hand, no game has yet started, we don't need the confirmation dialog at we can directly start a new
+game.
+
+We'll keep a boolean flag to determine if we are already playing or not.
+
+Now, in a new 'util' package, let's first create a new class called Info, which will be used for the 
+creation of dialogs.
+In this class we can have a method that displays a confirmation dialog with a specific text and returns the answer
+of the user.
+
+... (Write the Info.java class with the confirmation dialog.)
+
+In this class we can also introduce a logger, just that you know how to use it, in case you may need it in other
+projects.
+
+... (Introduce the Logger and use it in the confirmation creation method.)
+
+For the specific scenario we have to ask the user if he wants to start a new game or not, let's have another method,
+so that we don't have the text strings in our main class.
+
+... (Write the showConfirmationDialogStartNewGame().)
+
+Okay, now we are ready to use this in our New Game event.
+
+Let's first declare the boolean playing, to determine if are already playing or not.
+On the tile creation, we will add the setOnAction for each of the cell, so that they set the 
+playing flag to true, in case they are clicked, and when we start a new game, this flag will be set
+to false.
+
+... (Add the playing boolean, set it true on each tile clicked, and set it false on new game.)
+
+Finally, let's ask the user for the confirmation on the New Game event.
+
+... (Modify the New Game Event to ask the user for the confirmation.)
+
+Before we close this video, let's do a last change. We still have the example data when we start the application the 
+first time. Let's have the initial labels reflect the Easy GameMode.
+
+... (Set the initial labels corresponding to Easy Game Mode.)
+
+Okay, that was it for this video, I hope we got an idea on how to use dialogs on Java FX.
+We will continue on the next video with the real deal, starting the game generation.

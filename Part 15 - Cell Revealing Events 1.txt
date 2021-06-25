@@ -1,0 +1,44 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 15 - Cell Revealing Events 1
+
+Ok, so we have implemented in part 13 the methods needed to reveal a cell, and in the last video we talked
+about the playing behaviours.
+
+So, let's now put these together and implement the cell revealing events. Just to recap the left click behaviours:
+
+Left Click a cell to reveal it
+	if a number, just display the number
+	if blank, reveal recursively all adjacent cells
+	if a mine, game over 
+		-> Reveal the mines after game over
+	if the cell is flagged, do not select it, don't do anything
+
+Let's start from the bottom, the cell must not be flagged in order for the revealing events. We will add the flags in another video,
+but for the moment we can use just a flag in the Cell class.
+
+... (Introduced the flagged flag in the Cell class.)
+
+Just for simplicity we can do introduce two small methods to quick check if a cell is mine or blank. 
+This is a good practice instead of using conditions like
+call.getValue() == -1, because we don't depend on a real value, and if we later decide to use a different value than -1 for a mine, 
+we can just change the isMine() method, instead of having to check all the code for those conditions.
+
+... (Introduced the quick check methods isMine(), isBlank())
+
+To do a little refactoring, there are a lot of Board member which are used in BoardUtil class, 
+like the totalRows and totalCols, or the Cells array.
+Instead of passing them all the time as parameters, we can have a static member in the BoardUtil class, 
+referencing to the Board that we are currently playing in. 
+
+... (Introduced a Board reference in BoardUtil.)
+
+Now, we can have the first benefit from this refactoring, by removing the totalRows and totalCols parameters
+from isValid() method in BoardUtil.
+
+... (Refactor isValid() method in BoardUtil.)
+
+A last refactoring here is to move the getNeighbours() and getAdjacentMineCount() into BoardUtil, because, in fact these are just utility methods.
+Don't forget to add the static keyword.
+
+... (Move the getNeighbours() and getAdjacentMineCount() methods into BoardUtil.)
+
+Ok, a lot of changes in this video. Let's continue to the next one as the second part of Cell Revealing Events.

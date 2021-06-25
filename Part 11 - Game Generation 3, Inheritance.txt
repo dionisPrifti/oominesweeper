@@ -1,0 +1,23 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 11 - Game Generation 3, Inheritance
+
+We will continue again with the game generation and try to explain Inheritance, another principle of OOP.
+
+Think of the Cell class. Its members show us that a Cell is just a piece on the board. If we think about its capabilities,
+a cell should also be clickable, so that we can reveal its value. In fact a Cell is in the same time a toggle button too, but with some
+extra information, for example the row and column.
+
+So, we can say that the Cell extends the ToggleButton class, which means a cell IS-A ToggleButton, plus some other capabilities. This
+relationship is what is called Inheritance. We have a lot of benefits from inheritance, but for our case it is enough to say that
+we can use a Cell just a ToggleButton, and moreover extend its functionalities as we wish. You probably have seem example of inheritance
+with a class Animal and then other Dog or Cat classes, but in this you can really understand why it is really helpful.
+
+Let's go ahead and write it. After that we will use the Cell objects to populate our tilePane.
+
+... (Make Cell class extend ToggleButton. Adapted the constructors.)
+
+    (Give more info on Inheritance during the code... DRY principle...)
+
+Don't confuse this relationship with the HAS-A relationship we have in the Board class with the Cell class. That is called Aggregation,
+a special form of Association, which is another principle of OOP.
+
+That was it for this video, see you on the next one, where we will finally generate the mines randomly.

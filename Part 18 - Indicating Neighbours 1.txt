@@ -1,0 +1,40 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 18 - Indicating neighbours 1
+
+Before we continue, I guess you remember our little bug on the last video.
+Hopefully some of you solved that. For those of you who didn't, here is the trick.
+
+So, to remind you of that: When you flag a cell, and then unflag it and reveal that cell, 
+the width of the cell becomes too big and than the whole grid is broken.
+This bug happens because we use both the text and a graphic on a cell at a given time, and they both account for the total
+width. We have to be sure that when a text is present, for example a digit, there should be no graphic, and when an image is 
+displayed, like a mine or a flag, there should be no text. 
+
+So, let's fix that really quick.
+
+... (Fixed bug: When you flag a cell, and then unflag it and reveal that cell, 
+	the width of the cell becomes too big and than the whole grid is broken)
+
+Let me know in the comments if you find any other bug. I know there might be plenty of them out there. 
+And of course, this is just a tutorial, so I am not using the best way there is, just a simple intuitive solution
+so that you can get an idea about it.
+
+Ok, now let's continue with Indicating the neighbours.
+Here is what we have already said about that behavior:
+
+Left Click on a revealed digit to display the hidden adjacent cells.
+	if the neighbors flagged, adjacent to the digit, are equal or greater than the number 
+		of the hidden and unflagged cells, (meaning all mines are found)
+		all hidden cells will be automatically revealed. 
+		This can open a mine and game over. (point 1. above for each)
+	if the neighbors flagged, adjacent to the digit, are less than the number
+		of the hidden and unflagged cells, (meaning not all mines are found)
+		the hidden cells are indicated/popped (small animation)
+	if the cell is flagged, do not select it, don't do anything
+
+So, from this description, we need at least three new methods:
+1. Get the number of flagged neighbors of a cell
+2. Reveal all the neighbors of a cell
+   (Used when clicking on a revealed cell that has already a number of flagged neighbors equal or greater than its value)
+3. Indicate all hidden neighbors with a small animation
+
+We will implement them in the next video where we will finish dealing with Indicating the Neighbours.

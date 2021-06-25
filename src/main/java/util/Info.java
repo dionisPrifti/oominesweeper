@@ -26,12 +26,12 @@ public class Info {
         alert.setHeaderText(headerText);
         alert.setContentText(contentText);
 
-	ButtonType okButton = ButtonType.YES;
-	ButtonType noButton = ButtonType.NO;
-	alert.getButtonTypes().setAll(okButton, noButton);
-	alert.showAndWait();
+        ButtonType okButton = ButtonType.YES;
+        ButtonType noButton = ButtonType.NO;
+        alert.getButtonTypes().setAll(okButton, noButton);
+        alert.showAndWait();
 
-	if (alert.getResult() == ButtonType.YES)
+        if (alert.getResult() == ButtonType.YES)
 	    return true;
 
 	return false;

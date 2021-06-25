@@ -1,0 +1,34 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 14 - Playing behaviours
+
+In this video we will talk about the possible playing behaviours on our minesweeper.
+
+1. Left Click a cell to reveal it
+	if a number, just display the number
+	if blank, reveal recursively all adjacent cells
+	if a mine, game over 
+		-> Reveal the mines after game over
+	if the cell is flagged, do not select it, don't do anything
+
+2. Right Click on a cell to flag it as a mine (and update the labels)
+	if the cell is already flagged, unflagg it
+	if the cell is already revealed, do not do anything, do not set a flag
+
+3. Left Click on a revealed number to display the hidden adjacent cells.
+	if the neighbors flagged, adjacent to the digit, are equal or greater than the number 
+		of the hidden and unflagged cells, (meaning all mines are found)
+		all hidden cells will be automatically revealed. 
+		This can open a mine and game over. (point 1. above for each)
+	if the neighbors flagged, adjacent to the digit, are less than the number
+		of the hidden and unflagged cells, (meaning not all mines are found)
+		the hidden cells are indicated/popped (small animation)
+	if the cell is flagged, do not select it, don't do anything
+
+4. Game Won! -> When all digits and blanks are reavealed and all the mines are flagged 
+
+Now, before we start implementing these behaviours on the next video, let's do a little refactoring over here and move all the classes
+we have in the default package in a new package called simply 'minesweeper'. Having code in the default package is really not recommended in Java, 
+for example we can't import those classes in other packages, which we will need to do in the following videos.
+
+Since we moved these classes, we should also add a slash in the images path, otherwise an error would be thrown as the path is not found.
+
+Okay, so that was it for this part, see you on the next one where we will start implementing the playing behaviours.

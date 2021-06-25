@@ -1,0 +1,37 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 6 - Game Modes
+
+Ok, in this video we will explain the game modes or difficulty and display the grid accordingly.
+
+In the classic Windows version, there are three modes:
+
+Easy, which has a 9 by 9 grid and 10 total mines.
+Medium, which has a 16 by 16 grid and 40 total mines.
+and
+Hard, which has a 16 by 30 grid with a total of 99 mines.
+
+Let's write these as a Java Enum, called GameMode.
+
+Java Enums can also have fields, and we will use this feature to have the information about
+the width/height and the number of mines for each enum value.
+
+... (Write the GameMode enum.)
+
+This is way better and cleaner than using constants for each of this fields.
+
+Now, we can modify the gameDifficultyCombo to use the values from the enum, not just Strings.
+And let's call it gameModeCombo.
+
+... (Rename gameDifficultyCombo into gameModeCombo. Using GameMode enum values for it.)
+
+A last thing to mention is that the Window of our minesweeper will be fixed, as it doesn't make sense for the user
+to resize it. So, we can have two other properties on the Enum, windowWidth and windowHeight.
+I have already calculated the best values for each mode, so just copy and paste them.
+
+... (Added the windowWidth and windowHeight fields on each game mdoe.)
+
+Let's finally use these values for the window size and make it not-resizeable.
+
+... (Set the window size from the GameMode field values and make it not-resizeable.)
+
+That's it for this video, on the next one we will write the game changing event and we are almost done with
+the Gui part.

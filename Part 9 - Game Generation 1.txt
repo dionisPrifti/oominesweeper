@@ -1,0 +1,36 @@
+Hey Guys, welcome to my 'OO Minesweeper', Part 9 - Game Generation 1
+
+Okay, now let's think about how we can generate the game. 
+
+To do this, we need to delve into the game logic and rules, as they are not very straight-forward. You can read more
+about them in the links I will provide you, but in any case I will give you just the rules you need for our implementation.
+
+Let's start with the first move. In many versions, the first move is a safe move, meaning it can never be a mine. This will
+be our version too, as it gets a little annoying when we are that unlucky that we get a mine in the first move.
+
+Moreover, we will make sure that the first move reveals a blank square, so that we have more chances to find mines in 
+the beginning. We can do this by not letting the random mine generator put a mine in the adjencent cells. 
+
+For better readibility, let's change first the variables named height/width into totalRows and totalCols. It will be more
+easy when using them in loops.
+
+... (Change height/width into totalRows and totalCols.)
+
+Now, most of the game generation logic will be implemented in the Board class.
+Let's add some util methods to help us with the neighbours of a cell.
+
+... (Add BoardUtil class with util methods for neighbours.)
+
+In the Board class, let's rename also height/width into totalRows and totalCols.
+Here we need some new methods. First, let write a method that returns a list of neighbor cells given the coordinates
+of a certain cell.
+
+... (Add the getNeighbors method.)
+
+Now, to hold the values of the hidden cells, we may keep a two-dimensional array of integers, following the agreement
+we made regarding the number representation for each value.
+
+... (Add the int[][] board array to hold the values of the hidden cells.)
+
+That's it for this video. We will continue with the Game Generation on the next one, and we will also introduce one of the four
+main principles of OOP, Encapsulation.

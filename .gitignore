@@ -108,4 +108,8 @@ buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 
+### IntelliJ ###
+.idea/
+oominesweeper.iml
+
 # End of https://www.gitignore.io/api/java,maven,eclipse
